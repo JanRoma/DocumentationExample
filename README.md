@@ -30,7 +30,3 @@ So **the only constant** in documentaton is **continous change** and adapting to
 * PlantUML
 * Markdown
 * GitHub
-
-
-#
-# Project description (Some highlights)
