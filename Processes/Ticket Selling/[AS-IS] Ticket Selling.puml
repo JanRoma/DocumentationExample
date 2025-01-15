@@ -1,0 +1,26 @@
+@startuml TicketSellingProcess TO-BE
+|#eeaaaa|Customer|
+  start
+  :Customer arrives at the ticket counter;
+  :Customer waits in the line;
+  :Customer requests a ticket;
+  if (Cllient passed all needed details?) then (Yes)
+  else (No)
+|#9999cc|Employee|
+    :Employee asks for additional information;
+|Customer|
+    :Customer provides details;
+  endif
+|Employee|
+  :Employee checks ticket availability;
+  :Employee confirms availability;
+  :Employee calculates total price;
+  :Employee issues a paper ticket;
+|Customer|
+  :Customer reviews the ticket;
+  :Customer pays for the ticket;
+|Employee|
+  :Employee provides receipt;
+  stop
+
+@enduml

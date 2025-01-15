@@ -1,0 +1,26 @@
+@startuml TicketSellingProcess TO-BE
+
+|#ccaacc|Website or Kiosk|
+   start
+  :Customer accesses online platform or kiosk;
+  :Customer browses ticket options;
+  :Customer selects ticket type and quantity;
+|#9999bb|System|
+  :System checks ticket availability;
+  :System confirms availability;
+|Website or Kiosk|
+  :Customer reviews ticket details;
+  :Customer proceeds to payment;
+|#aabbaa|Payment Provider|
+  :Customer selects payment method;
+  :Customer pays for the ticket;
+  :Payment confirmation is sent to the system;
+|System|
+  :System generates QR code;
+|#ccaacc|Website or Kiosk|
+  :Website/Kiosk displays confirmation message;
+  :QR code is sent to customer (Website)\nor shown and printed (Kiosk);
+|Website or Kiosk|
+  :Customer saves or prints QR code;
+  stop
+@enduml
