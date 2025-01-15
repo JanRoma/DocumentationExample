@@ -1,0 +1,36 @@
+@startuml TicketCheckingProcess TO-BE
+  
+|#eeaaaa|Customer|
+start
+  :Customer approaches the entry gate;
+  :Customer waits in the line;
+  :Customer scans the\nQR code at the scanner;
+|QR Scanner|
+  :Scanner reads the QR code;
+|#999999|Employee|
+|#9999cc|System|
+  :System validates QR code;
+  if (QR code valid?) then (Yes)
+  else (No)
+|#bbccbb|QR Scanner|
+    :Error displayed on scanner;
+    :System logs the issue;
+|Employee|
+    :Employee assists customer;
+    :Employee resolves issue manually;
+    if (Ticket valid?) then (Yes)
+    else (No)
+|#999999|Employee|
+      :Employee direct the customer\nto the customer service desk;
+      stop
+    endif
+|QR Scanner|
+    :Employee accept the entry on the QR Scanner\nand allows customer to proceed;
+  endif
+|System|
+    :System opens the gate automatically;
+|Customer|
+    :Customer enters the park;  
+stop
+
+@enduml
