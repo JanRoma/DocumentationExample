@@ -1,0 +1,29 @@
+@startuml TicketCheckingProcess AS-IS
+
+' As-Is Ticket Checking Process
+  
+|#eeaaaa|Customer|
+ start
+  :Customer approaches entry gate;
+  :Customer waits in line;
+|#9999cc|Employee|
+  :Employee asks for the ticket;
+|Customer|
+  :Customer hands over the ticket;
+|Employee|
+  :Employee manually checks the ticket;
+  :Employee confirms the ticket validity;
+  if(Are there any ticket types\nthat require checking\nthe customer documents?) then (Yes)
+  :Check all of the needed documents;
+  ' There should be process for what happens when the customer has no required documents.
+  else (No)
+  endif
+|Employee|
+  :Employee stamps or marks the ticket;
+  :Employee allows customer to proceed;
+|Customer|
+  :Customer enters the park;
+  stop
+
+
+@enduml
