@@ -1,0 +1,26 @@
+@startuml TicketingSystemDiagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+
+LAYOUT_WITH_LEGEND()
+
+Person_Ext(customer, "Customer", "End user purchasing and using tickets")
+Person(employee, "Employee", "Supports ticket validation process")
+System(ticketSystem, "Ticketing System", "Manages ticket sales and validation")
+System_Boundary(ticketBoundary, "Ticketing System") {
+    Container(website, "Website", "Frontend for ticket purchase", "Allows customers to buy tickets online")
+    Container(kiosk, "Kiosk", "On-site ticket kiosk", "Allows customers to buy tickets at the park")
+    ContainerDb(database, "Ticket Database", "Stores ticket information")
+    Container(scanner, "QR Code Scanner", "Scans and validates tickets at the entrance")
+    Container(proxy, "Proxy Service", "Facilitates secure communication", "Handles API requests between scanner and database")
+}
+
+Rel(customer, website, "Purchases tickets online")
+Rel(customer, kiosk, "Purchases tickets at kiosk")
+Rel(customer, scanner, "Scans QR code at entry")
+Rel(website, database, "Receives tickets availiability\nStores ticket information", "REST API")
+Rel(kiosk, database, "Receives tickets availiability\nStores ticket information", "REST API")
+Rel(scanner, proxy, "Sends scanned QR code for validation")
+Rel(proxy, database, "Validates ticket data")
+Rel(employee, scanner, "Assists in resolving ticket issues")
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+|#eeaaaa|Customer|
+  start
+  :Customer visits the park;
+  if (Customer has memberhip card?) then (Yes)
+    :Customer presents the\ncard at the counter;
+  else (No)
+  :Customer requests a\nmembership card at the counter;
+|#9999cc|Employee|
+
+  :Employee issues a\npaper card to the customer;
+  endif
+  :Employee stamps the card;
+  if (Card is full?) then (No)
+  |#eeaaaa|Customer|
+    :Customer keeps the card for future visits;
+
+  else (Yes)
+|#9999cc|Employee|
+    :Employee verifies the\ncard and issues reward;
+
+  endif
+  stop
+
+@enduml

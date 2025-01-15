@@ -1,0 +1,19 @@
+@startuml
+title Special Events Registration Process (Manual)
+
+start
+
+:Customer visits Park;
+:Staff provides Event Information;
+:Customer selects Event;
+:Staff provides Registration Form;
+:Customer fills Registration Form;
+:Staff confirms Registration;
+:Staff updates Registration in Event Management System;
+:Event Management System confirms Update;
+:Staff sends Confirmation Email to Customer;
+
+stop
+
+@enduml
+

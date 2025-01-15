@@ -1,0 +1,20 @@
+@startuml
+
+actor User as "User"
+
+usecase "Enter Card Details" as UC1
+usecase "See screen with authentication" as UC2
+usecase "Confirm via Push Notification" as UC3
+usecase "Enter PIN and Confirm" as UC4
+usecase "Scan QR Code and Enter OTP" as UC4A
+usecase "Complete Authentication" as UC5
+
+User --> UC1 : "Initiate Payment"
+UC1 <.down. UC2 : "Choose Method" : extends
+UC2 <.down.  UC3 : "Select Push Notification"
+UC2 <.down.  UC4 : "Select PIN Authentication"
+UC4 <.down.  UC4A : "Select QR Code + OTP"
+UC3 <.down.  UC5 : "Approve in App"
+UC4A <.down.  UC5 : "Scan and Enter OTP"
+
+@enduml

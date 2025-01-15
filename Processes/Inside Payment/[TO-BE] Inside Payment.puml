@@ -1,0 +1,26 @@
+@startuml
+|Application|
+  start
+  :Customer registers for the loyalty program via the app;
+  :Customer receives a digital account linked to their profile;
+|QR Scanner|
+  :Customer visits the park\nand scans their ticket\nat the entry gate;
+|System|
+  :System validates the ticket and updates visit count in the account;
+  if (Visits reach reward threshold?) then (Yes)
+    :System notifies customer of available rewards;
+    ' Ability to redeem both digital and physical rewards
+|Application|
+    :Customer redeems rewards via the app;
+|System|
+    :System updates reward status;
+  else (No)
+|System|
+    :System records the visit for future rewards;
+|QR Scanner|
+    :System notifies customer about number\nof visits needed to reach next reward;
+  endif
+  stop
+
+
+@enduml
